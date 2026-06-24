@@ -1,4 +1,6 @@
 # Git how to
+
+## Quick overview
 ```
 git clone <repo-url>        # Clone the repo
 git checkout -b feature/my-feature  # Create a new branch
@@ -48,3 +50,79 @@ Then open a Pull Request on GitHub
 - Use **GitHub Issues** to track tasks and bugs
 - If something breaks, **let the team know immediately**
 - Ask for help early - git can be confusing at first and that's completely normal!
+
+# Your own Dev branch (more detail)
+
+1. Clone the Repository
+
+```bash
+git clone <repository-url>
+```
+
+2. Navigate into the Project Directory
+
+```bash
+cd <repository-name>
+```
+
+3. Create and Switch to Your New Branch
+
+```bash
+# Create and switch in one command
+git checkout -b dev_your_name
+
+# OR using the newer syntax
+git switch -c dev_your_name
+```
+
+4. Make Your Changes, Then Stage and Commit
+
+```bash
+# Stage all changes
+git add .
+
+# Or stage a specific file
+git add <filename>
+
+# Commit with a message
+git commit -m "your commit message"
+```
+
+5. Push Your Branch to Git
+
+```bash
+git push origin dev_your_name
+```
+
+A few tips:
+
+    git branch will list all branches and show which one you're on
+    git status will show you what files have been changed/staged
+
+# Merging Dev Branch into Main
+## Option 1: Merge (Most Common)
+
+```bash
+# Switch to main branch
+git checkout main
+
+# Pull latest main to make sure you're up to date
+git pull origin main
+
+# Merge dev into main
+git merge dev
+
+# Push the updated main
+git push origin main
+```
+
+## Option 2: Pull Request (Best Practice for Teams)
+
+If you're working on GitHub, the preferred approach is:
+
+    Push your dev branch
+    Go to the repository on the website
+    Click "Compare & pull request" or "Create merge request"
+    Review the changes and merge via the UI
+
+This allows for code review before merging into main.
