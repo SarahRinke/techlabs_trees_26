@@ -10,6 +10,19 @@
 #                             are located in tiles[0]
 #
 
+# 2. function remove_non_trees():
+#    removes entries that Heidi identified as non-trees
+# 
+# input: 
+#.       - file_path: path to gpkg file of Heidi 
+#.       - trees: output of unify_crs() or load_trees_local() 
+#
+# output: 
+#        - trees: less entries
+#
+
+
+
 
 # # # # # # select trees that are within a tile  # # # # # # #
 # #                                                        # #
@@ -36,3 +49,27 @@ def tree_selection(tiles, trees,target_tile):
 #                                                            #
 # #                                                        # #
 # # # # # end tree selection # # # # # # # # # # # # # # # # # 
+
+
+
+
+# # # # # # remove non-tree entries  # # # # # # # # # # # # # 
+# #                                                        # #
+#                                                            #
+
+def remove_non_trees(file_path, trees):
+
+    import geopandas as gpd
+    trees_filtered = gpd.read_file(file_path)
+
+    assert len(trees) == len(trees_filtered) # check that 
+                                             # same files 
+    
+    trees["isTrue"] = trees_filtered["is_True"]
+    trees = trees[trees["isTrue"] == 1]
+    
+    return trees
+    
+#                                                            #
+# #                                                        # #
+# # # # # end non_trees  # # # # # # # # # # # # # # # # # # # 

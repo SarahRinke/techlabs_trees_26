@@ -5,6 +5,7 @@
 #        - data_path: a pathlib.PoxisPath  
 #          Either complete path or relative (e.g.: "../DATA/tile1.tif")
 #.       - ntiles: number of tiles you want to load
+#        - file_extension: valid values are ".jp2" or ".tif"
 #
 # output: 
 #        - tile: dicitionary datatype 
@@ -27,7 +28,7 @@
 # #                                                        # #
 #                                                            #
 
-def load_tile_local(data_path, ntiles):
+def load_tile_local(data_path, ntiles, file_extension):
 
     # import rasterio
     import os
@@ -40,7 +41,7 @@ def load_tile_local(data_path, ntiles):
     tilenames = [
         data_path / filename
         for filename in filenames
-        if filename.endswith(".tif")
+        if filename.endswith(file_extension) 
     ]
 
 

@@ -102,7 +102,7 @@ def plot_boxes_on_tile(tiles,
         160: "purple"
     }
 
-    line_width = 1
+    line_width = 0.2
 
 
     # load image
