@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+DATA/
+
+DATA/
+
+fasterrcnn_trees.pth
+*.pth
+
+fasterrcnn_trees.pth
+*.pth
+DATA/
